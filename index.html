@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Log In</title>
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <div class="container">
+      <h2>Anmeldung</h2>
+      <form onsubmit="return false">
+        <label for="username"><b>Benutzername</b></label>
+        <input type="text" placeholder="Geben Sie Ihren Benutzernamen ein!" id="username" required>
+        
+        <label for="password"><b>Kennwort</b></label>
+        <input type="password" placeholder="Geben Sie Ihren Kennwort ein!" id="password" required>
+        <p id="output">
+        </p>
+        <button type="submit" onclick="login()">Log In!</button>
+      </form>
+
+ 
+    </div>
+    <div style="position: fixed; bottom: 20px; left: 20px;">
+        <button style="background-color: transparent;" onclick="changeColor('#ffffff')">🔄</button>
+        <button style="background-color: #000000;" onclick="changeColor('#000000')"></button>
+        <button style="background-color: #ff3030;" onclick="changeColor('#ff3030')"></button>
+        <button style="background-color: #2196F3;" onclick="changeColor('#2196F3')"></button>
+      </div>
+    <div class="corner-shape"></div>
+
+
+    <script src="./assets/js/main.js"></script>
+
+</body>
+</html>

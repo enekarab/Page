@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Richtige oder Falsche Tür</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin-top: 150px;
+    }
+
+    #question {
+      font-size: 54px;
+      margin-top: 50px;
+    }
+
+    #result {
+      font-size: 18px;
+      margin-top: 40px;
+      font-weight: bold;
+    }
+
+    #doors {
+      margin-top: 50px;
+    }
+
+    .door {
+      display: inline-block;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 200px;
+      padding: 10px 20px;
+     
+    }
+  </style>
+</head>
+<body>
+  <h1>Richtige oder Falsche Tür</h1>
+  <div id="question">Für welche Tür möchten Sie sich entscheiden?</div>
+  <div id="result"></div>
+  <div id="doors">
+    <div class="door" onclick="checkAnswer(true)">🚪</div>
+    <div class="door" onclick="checkAnswer(false)">🚪</div>
+  </div>
+
+  <script>
+    var doors = [
+      {
+        text: "Arkada bir ödül var.",
+        answer: true
+      },
+      {
+        text: "Arkada bir canavar var.",
+        answer: false
+      }
+    ];
+
+    var selectedDoorIndex;
+    var totalScore = 0;
+
+    var questionElement = document.getElementById('question');
+    var resultElement = document.getElementById('result');
+
+    function displayQuestion() {
+      selectedDoorIndex = Math.floor(Math.random() * doors.length);
+      questionElement.textContent = "Für welche Tür möchten Sie sich entscheiden?";
+    }
+
+    function checkAnswer(answer) {
+      var selectedDoor = doors[selectedDoorIndex];
+
+      if (answer === selectedDoor.answer) {
+        totalScore++;
+        resultElement.textContent = "Glückwunsch! Korrekte Antwort!";
+      } else {
+        resultElement.textContent = "Falsche Antwort, du hast ein Monster getroffen!";
+
+      }
+
+      //Kapıları devre dışı bırak
+      disableDoors();
+
+      //Sonucu göster ve oyunu yeniden başlat
+      setTimeout(function() {
+        resultElement.textContent = "";
+        enableDoors();
+        displayQuestion();
+      }, 1500);
+    }
+
+    function disableDoors() {
+      var doorElements = document.getElementsByClassName('door');
+
+      for (var i = 0; i < doorElements.length; i++) {
+        doorElements[i].removeAttribute('onclick');
+        doorElements[i].style.opacity = 0.5;
+        doorElements[i].style.cursor = 'default';
+      }
+    }
+
+    function enableDoors() {
+      var doorElements = document.getElementsByClassName('door');
+
+      for (var i = 0; i < doorElements.length; i++) {
+        doorElements[i].setAttribute('onclick', 'checkAnswer(' + doors[i].answer + ')');
+        doorElements[i].style.opacity = 1;
+        doorElements[i].style.cursor = 'pointer';
+      }
+    }
+
+    displayQuestion();
+  </script>
+</body>
+</html>
