@@ -23,8 +23,8 @@ flipBtn.addEventListener("click", () => {
     disableButton();
 });
 function updateStats(){
-    document.querySelector("#heads-count").textContent = `Heads: ${heads}`;
-    document.querySelector("#tails-count").textContent = `Tails: ${tails}`;
+    document.querySelector("#heads-count").textContent = `Kopf: ${heads}`;
+    document.querySelector("#tails-count").textContent = `Zahl: ${tails}`;
 }
 function disableButton(){
     flipBtn.disabled = true;
