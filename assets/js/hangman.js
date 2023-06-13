@@ -9,23 +9,9 @@ const resultText = document.getElementById("result-text");
 
 //Options values for buttons
 let options = {
-  fruits: [
-    "Apple",
-    "Blueberry",
-    "Mandarin",
-    "Pineapple",
-    "Pomegranate",
-    "Watermelon",
-  ],
-  animals: ["Hedgehog", "Rhinoceros", "Squirrel", "Panther", "Walrus", "Zebra"],
-  countries: [
-    "India",
-    "Hungary",
-    "Kyrgyzstan",
-    "Switzerland",
-    "Zimbabwe",
-    "Dominica",
-  ],
+  obst: ["Ananas","Apfel","Aprikose","Banane","Birne","Brombeere","Erdbeere","Himbeere","Johannisbeere","Kirsche","Orange","Pfirsich","Pflaume","Sauerkirsche","Stachelbeere","Wassermelone","Weintrauben","Zitrone","Kiwi","Mango",],
+  tiere: ["Huhn", "Gorilla", "Kuh", "Schaf", "Lamm", "Ziege", "Pferd", "Esel", "Ente", "Hase", "Biene", "Mungo", "Elch", "Kamel", "Wolf", ],
+  land: ["Bosnien", "China", "Finnland", "Frankreich", "Indien", "Kanada", "Kolumbien", "Kongo", "Korea", "Libanon", "Mali", "Nepal", "Norwegen", "Pakistan", "Portugal", "Schweden", "Serbien", ],
 };
 
 //count
@@ -36,7 +22,7 @@ let chosenWord = "";
 
 //Display option buttons
 const displayOptions = () => {
-  optionsContainer.innerHTML += `<h3>Please Select An Option</h3>`;
+  optionsContainer.innerHTML += `<h3>Bitte wahle eine Option</h3>`;
   let buttonCon = document.createElement("div");
   for (let value in options) {
     buttonCon.innerHTML += `<button class="options" onclick="generateWord('${value}')">${value}</button>`;
@@ -120,7 +106,7 @@ const initializer = () => {
             winCount += 1;
             //if winCount equals word lenfth
             if (winCount == charArray.length) {
-              resultText.innerHTML = `<h2 class='win-msg'>You Win!!</h2><p>The word was <span>${chosenWord}</span></p>`;
+              resultText.innerHTML = `<h2 class='win-msg'>Du gewinnst!!</h2><p>Das Wort war <span>${chosenWord}</span></p>`;
               //block all buttons
               blocker();
             }
@@ -133,7 +119,7 @@ const initializer = () => {
         drawMan(count);
         //Count==6 because head,body,left arm, right arm,left leg,right leg
         if (count == 6) {
-          resultText.innerHTML = `<h2 class='lose-msg'>You Lose!!</h2><p>The word was <span>${chosenWord}</span></p>`;
+          resultText.innerHTML = `<h2 class='lose-msg'>Du verlierst!!</h2><p>Das Wort war <span>${chosenWord}</span></p>`;
           blocker();
         }
       }
