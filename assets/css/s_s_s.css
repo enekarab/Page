@@ -55,7 +55,7 @@ body {
 
   @media screen and (max-width: 600px) {
     .selection {
-      font-size: 5rem;
+      font-size: 2rem;
     }
     .results {
       font-size: 2rem;
